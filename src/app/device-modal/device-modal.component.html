@@ -1,0 +1,21 @@
+<div class="modal" #modal>
+  <div class="modal-content">
+    <button class="close" (click)="closeModal()">X</button>
+    <h3 class="center-text">{{title}}</h3>
+    <hr />
+    <h5>Description</h5>
+    <input #description />
+    <br />
+    <h5>Address</h5>
+    <input #address />
+    <br />
+    <h5>Maximum Hourly Energy Consumption</h5>
+    <input #maximumHourlyEnergyConsumption />
+    <br />
+    <div class="center-content">
+      <button (click)="onClick()">{{title}}</button>
+    </div>
+    <br />
+    <p class="error" #error></p>
+  </div>
+</div>

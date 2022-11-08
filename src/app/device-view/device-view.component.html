@@ -1,0 +1,17 @@
+<app-nav-menu></app-nav-menu>
+<div class="neon-text container box-panel box-shadow">
+  <h2>Description</h2>
+  <div *ngIf="device">
+    <dx-chart [dataSource]="chartData">
+      <dxi-series type="spline"
+                  valueField="energyConsumptionValue"
+                  argumentField="timeStamp"
+                  name="Energy Consumption">
+      </dxi-series>
+    </dx-chart>
+  </div>
+  <br /> 
+  <br />
+  <h5>Select date:</h5>
+  <input type="date" (change)="loadChartData()" #datePicker/>
+</div>

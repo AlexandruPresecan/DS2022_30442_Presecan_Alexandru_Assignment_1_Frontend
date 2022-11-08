@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/ds2022-30442-presecan-alexandru-assignment-1-frontend'),
+      dir: require('path').join(__dirname, './coverage/angularapp'),
       subdir: '.',
       reporters: [
         { type: 'html' },

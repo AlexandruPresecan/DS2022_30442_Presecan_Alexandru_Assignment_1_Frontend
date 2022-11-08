@@ -1,1 +1,78 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+code {
+  color: #e01a76;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.center-content {
+  display: flex;
+  justify-content: center;
+}
+
+.center-text {
+  text-align: center;
+}
+
+body {
+  background-image: url('assets/wp11079666.png');
+  background-size: cover; 
+}
+
+.neon-text {
+  color: rgb(66, 164, 245);
+  font-family: 'Neuropolitical Regular'
+}
+
+input {
+  color: black;
+  background-color: white;
+  border-color: rgb(66, 164, 245);
+}
+
+button {
+  background-color: rgb(66, 164, 245);
+  color: black;
+  outline: none;
+  cursor: pointer;
+  transition: 0.3s;
+  width: 50%;
+  font-size: 20px;
+  border-color: rgb(66, 164, 245);
+}
+
+button:hover {
+  background-color: rgba(0, 0, 0, 0);
+  color: rgb(66, 164, 245);
+}
+
+.active-button {
+  background-color: rgba(0, 0, 0, 0);
+  color: rgb(66, 164, 245);
+}
+
+@font-face {
+  font-family: Neuropolitical Regular;
+  src: url('assets/prototype_[allfont.net].ttf');
+}
+
+.error {
+  color: red;
+}
+
+.bg-neon {
+  background-color: rgb(66, 164, 245);
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

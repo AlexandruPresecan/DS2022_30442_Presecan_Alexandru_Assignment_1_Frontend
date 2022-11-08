@@ -1,0 +1,30 @@
+<div class="center-content neon-text container">
+  <div class="box-panel center-text box-shadow">
+    <div class="tab">
+      <button (click)="openLoginTab()" #loginTab>LOGIN</button>
+      <button (click)="openRegisterTab()" #registerTab>REGISTER</button>
+    </div>
+    <hr style="height: 3px" />
+    <h5>UserName</h5>
+    <input #userName />
+    <br />
+    <br />
+    <h5 [hidden]="isLoginTab">Email</h5>
+    <input [hidden]="isLoginTab" #email />
+    <br [hidden]="isLoginTab" />
+    <br [hidden]="isLoginTab" />
+    <h5>Password</h5>
+    <input type="password" #password />
+    <br />
+    <br />
+    <h5 [hidden]="isLoginTab">Confirm Password</h5>
+    <input [hidden]="isLoginTab" type="password" confirmPassword />
+    <br [hidden]="isLoginTab" />
+    <br [hidden]="isLoginTab" />
+    <button [hidden]="!isLoginTab" (click)="login()">Login</button>
+    <button [hidden]="isLoginTab">Register</button>
+    <br />
+    <br />
+    <p class="error" #error></p>
+  </div>
+</div>

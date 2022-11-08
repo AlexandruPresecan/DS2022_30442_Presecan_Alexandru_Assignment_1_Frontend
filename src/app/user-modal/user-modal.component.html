@@ -1,0 +1,21 @@
+<div class="modal" #modal>
+  <div class="modal-content">
+    <button class="close" (click)="closeModal()">X</button>
+    <h3 class="center-text">{{title}}</h3>
+    <hr />
+    <h5>Username</h5>
+    <input #userName />
+    <br />
+    <h5>Email</h5>
+    <input #email />
+    <br />
+    <h5>Role</h5>
+    <input #role />
+    <br />
+    <div class="center-content">
+      <button (click)="onClick()">{{title}}</button>
+    </div>
+    <br />
+    <p class="error" #error></p>
+  </div>
+</div>

@@ -1,0 +1,67 @@
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+.align-horizontal {
+  width: 100%;
+}
+
+.devices {
+  display: inline-block;
+  width: 90%;
+}
+
+.add-device {
+  display: inline-block;
+  width: 10%;
+}
+
+table {
+  width: 100%;
+}
+
+td {
+  text-align: left;
+  border: 1px solid white;
+  background-color: black;
+  height: 50px;
+  font-size: 15px;
+  color: white;
+  padding: 20px;
+}
+
+th {
+  background-color: rgba(66, 164, 245, 0.1);
+  text-align: left;
+  border: 1px solid white;
+  font-size: 20px;
+  height: 50px;
+  width: 33%;
+  padding: 20px;
+}
+
+.icon {
+  height: 30px;
+  width: 30px;
+}
+
+.icon:hover {
+  background-color: white;
+  cursor: pointer;
+}
+
