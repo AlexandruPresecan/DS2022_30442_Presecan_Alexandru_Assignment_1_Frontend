@@ -58,6 +58,7 @@ th {
 .icon {
   height: 30px;
   width: 30px;
+  margin-left: 25%;
 }
 
 .icon:hover {

@@ -5,6 +5,6 @@ export interface Device {
   description: string;
   address: string;
   maximumHourlyEnergyConsumption: number;
-  userId: number;
+  userId?: number;
   energyConsumptions?: EnergyConsumption[];
 }

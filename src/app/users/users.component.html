@@ -1,27 +1,29 @@
-<app-nav-menu></app-nav-menu>
+<app-nav-menu-admin></app-nav-menu-admin>
 <div class="neon-text container">
   <br />
   <br />
   <div class="align-horizontal">
-    <h2 class="devices">Devices</h2>
-    <button class="add-device" (click)="openAddDeviceModal()">Add Device</button>
+    <h2 class="devices">Users</h2>
+    <button class="add-device" (click)="openAddUserModal()">Add User</button>
   </div>
   <table>
     <tr>
-      <th>Description</th>
-      <th>Address</th>
-      <th>Maximum Hourly Energy Consumption</th>
+      <th>Username</th>
+      <th>Email</th>
+      <th>Role</th>
       <th>View</th>
       <th>Edit</th>
+      <th>Delete</th>
     </tr>
-    <tr *ngFor="let device of devices">
-      <td>{{device.description}}</td>
-      <td>{{device.address}}</td>
-      <td>{{device.maximumHourlyEnergyConsumption}} kW</td>
-      <td class="icon" (click)="viewDevice(device.id)"><img class="icon" src="assets/eye.png" /></td>
-      <td class="icon" (click)="openEditDeviceModal(device)"><img class="icon" src="assets/edit.png" /></td>
+    <tr *ngFor="let user of users">
+      <td>{{user.userName}}</td>
+      <td>{{user.email}}</td>
+      <td>{{roleToString(user.role)}}</td>
+      <td class="icon" (click)="viewUser(user.id)"><img class="icon" src="assets/eye.png" /></td>
+      <td class="icon" (click)="openEditUserModal(user)"><img class="icon" src="assets/edit.png" /></td>
+      <td class="icon" (click)="deleteUser(user)"><img class="icon" src="assets/delete.png" /></td>
     </tr>
   </table>
-  <device-modal #addDeviceModal></device-modal>
-  <device-modal #editDeviceModal></device-modal>
+  <user-modal #addUserModal></user-modal>
+  <user-modal #editUserModal></user-modal>
 </div>

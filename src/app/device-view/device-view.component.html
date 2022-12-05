@@ -1,7 +1,18 @@
 <app-nav-menu></app-nav-menu>
 <div class="neon-text container box-panel box-shadow">
-  <h2>Description</h2>
   <div *ngIf="device">
+    <h5>Description: {{device.description}}</h5>
+    <br /> 
+    <h5>Address: {{device.address}}</h5>
+    <br /> 
+    <h5>Maximum Hourly Energy Consumption: {{device.maximumHourlyEnergyConsumption}} kW</h5>
+    <br /> 
+    <div style="display: flex;flex-direction: row">
+      <h5>Select date:</h5>
+      <input type="date" (change)="loadChartData()" #datePicker style="margin-left: 25px;margin-bottom: 25px;"/>
+    </div>
+    <br /> 
+    <br />
     <dx-chart [dataSource]="chartData">
       <dxi-series type="spline"
                   valueField="energyConsumptionValue"
@@ -10,8 +21,4 @@
       </dxi-series>
     </dx-chart>
   </div>
-  <br /> 
-  <br />
-  <h5>Select date:</h5>
-  <input type="date" (change)="loadChartData()" #datePicker/>
 </div>

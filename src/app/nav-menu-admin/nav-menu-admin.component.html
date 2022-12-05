@@ -3,7 +3,7 @@
     class="navbar navbar-expand-sm navbar-toggleable-sm bg-navbar border-bottom box-shadow mb-3"
   >
     <div class="container">
-      <a class="navbar-brand neon-text-nav" [routerLink]="['/client/devices']">Energy Consumption Management</a>
+      <a class="navbar-brand neon-text-nav" [routerLink]="['/admin/users']">Energy Consumption Management</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -15,6 +15,17 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
+      <ul class="navbar-nav flex-grow">
+        <li class="nav-item" [routerLinkActive]="['link-active']">
+          <a class="nav-link neon-text-nav" [routerLink]="['/admin/users']">Users</a>
+        </li>
+        <li class="nav-item" [routerLinkActive]="['link-active']">
+          <a class="nav-link neon-text-nav" [routerLink]="['/admin/devices']">Devices</a>
+        </li>
+        <li class="nav-item" [routerLinkActive]="['link-active']">
+          <a class="nav-link neon-text-nav" [routerLink]="['/admin/user-device-mapping']">User-Device Mapping</a>
+        </li>
+      </ul>
       <div
         class="navbar-collapse collapse d-sm-inline-flex justify-content-end"
         [ngClass]="{ show: isExpanded }"

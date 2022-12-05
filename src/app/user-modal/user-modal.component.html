@@ -12,6 +12,17 @@
     <h5>Role</h5>
     <input #role />
     <br />
+    <div [hidden]="passwordMandatory" style="display: flex;flex-direction: row">
+      <h5>Change Password</h5>
+      <input type="checkbox" (change)="changePassword = !changePassword" style="margin-left: 25px"/>
+    </div>
+    <br [hidden]="passwordMandatory"/>
+    <h5 [hidden]="!(passwordMandatory || changePassword)">Password</h5>
+    <input [hidden]="!(passwordMandatory || changePassword)" type="password" #password />
+    <br [hidden]="!(passwordMandatory || changePassword)"/>
+    <h5 [hidden]="!(passwordMandatory || changePassword)">Confirm Password</h5>
+    <input [hidden]="!(passwordMandatory || changePassword)" type="password" #confirmPassword/>
+    <br [hidden]="!(passwordMandatory || changePassword)"/>
     <div class="center-content">
       <button (click)="onClick()">{{title}}</button>
     </div>

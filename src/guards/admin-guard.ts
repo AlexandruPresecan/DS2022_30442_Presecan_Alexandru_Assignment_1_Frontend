@@ -5,14 +5,14 @@ import { Observable, of } from "rxjs";
 import { map, catchError } from 'rxjs/operators';
 
 @Injectable()
-export class ClientGuard implements CanActivate {
+export class AdminGuard implements CanActivate {
 
   constructor(private userService: UserService) {
 
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
-    return this.userService.isAuthenticated().pipe(
+    return this.userService.isAdminAuthenticated().pipe(
       map(()=> true),
       catchError(() => of(false))
     );

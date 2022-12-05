@@ -1,24 +1,27 @@
 import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { HubConnection, HubConnectionBuilder } from '@microsoft/signalr';
 import { CookieService } from 'ngx-cookie-service';
+import { environment } from 'src/environments/environment';
 import { User } from 'src/models/user/user';
 import { UserService } from 'src/services/user-service';
 import { UserModal } from '../user-modal/user-modal.component';
 
 @Component({
-  selector: 'app-nav-menu',
-  templateUrl: './nav-menu.component.html',
-  styleUrls: ['./nav-menu.component.css']
+  selector: 'app-nav-menu-admin',
+  templateUrl: './nav-menu-admin.component.html',
+  styleUrls: ['./nav-menu-admin.component.css']
 })
-export class NavMenuComponent {
+export class NavMenuAdminComponent {
 
   isExpanded = false;
   user!: User;
+  hubConnection!: HubConnection
 
   @ViewChild('editUserModal') editUserModal!: UserModal;
 
   constructor(private cookieService: CookieService, private router: Router, private userService: UserService) {
-
+   
   }
 
   ngOnInit(): void {

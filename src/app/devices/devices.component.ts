@@ -1,4 +1,4 @@
-import { Component, ComponentRef, ElementRef, ViewChild } from '@angular/core';
+import { Component, ComponentRef, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { Device } from '../../models/device/device';
@@ -12,7 +12,11 @@ import { DeviceModal } from '../device-modal/device-modal.component';
 })
 export class Devices {
 
-  devices!: Device[];
+  @Input() devices!: Device[];
+  @Input() redirect!: string;
+  @Input() admin!: boolean;
+
+  @Output() onChange: EventEmitter<any> = new EventEmitter();
 
   @ViewChild('addDeviceModal') addDeviceModal!: DeviceModal;
   @ViewChild('editDeviceModal') editDeviceModal!: DeviceModal;
@@ -21,12 +25,6 @@ export class Devices {
 
   constructor(private deviceService: DeviceService, private cookieService: CookieService, private router: Router) {
 
-  }
-
-  ngOnInit(): void {
-    this.deviceService.getDevices().subscribe(result => {
-      this.devices = result;
-    }, error => console.log(error));
   }
 
   ngAfterViewInit(): void {
@@ -45,7 +43,7 @@ export class Devices {
     this.addDeviceModal.onClick = () => {
       this.deviceService.createDevice(this.addDeviceModal.getDevice()).subscribe(result => {
         this.addDeviceModal.closeModal();
-        this.ngOnInit();
+        this.onChange.emit();
       }, error => this.addDeviceModal.setError(error.error));
     };
 
@@ -55,7 +53,7 @@ export class Devices {
 
       this.deviceService.updateDevice(device.id, device).subscribe(result => {
         this.editDeviceModal.closeModal();
-        this.ngOnInit();
+        this.onChange.emit();
       }, error => this.editDeviceModal.setError(error.error));
     };
   }
@@ -73,6 +71,12 @@ export class Devices {
   }
 
   viewDevice(id: number): void {
-    this.router.navigate(['client/devices/', id]);
+    this.router.navigate([this.redirect, id]);
+  }
+
+  deleteDevice(device: Device): void {
+    this.deviceService.deleteDevice(device.id).subscribe(result => {
+      this.onChange.emit();
+    }, error => console.log(error.error));
   }
 }

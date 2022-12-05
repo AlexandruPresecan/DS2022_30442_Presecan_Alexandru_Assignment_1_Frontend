@@ -1,4 +1,5 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { Role } from 'src/enums/role';
 import { User } from '../../models/user/user';
 
 @Component({
@@ -14,11 +15,15 @@ export class UserModal {
   @ViewChild('userName') private userName!: ElementRef;
   @ViewChild('email') private email!: ElementRef;
   @ViewChild('role') private role!: ElementRef;
+  @ViewChild('password') private password!: ElementRef;
+  @ViewChild('confirmPassword') private confirmPassword!: ElementRef;
 
   private id!: number;
 
   title!: string;
-
+  changePassword!: boolean;
+  passwordMandatory!: boolean;
+  
   onClick(): void {
 
   }
@@ -32,12 +37,21 @@ export class UserModal {
   }
 
   getUser(): User {
-    return {
+
+    const user: User = {
       userName: this.userName.nativeElement.value,
       email: this.email.nativeElement.value,
-      role: this.role.nativeElement.value,
+      role: this.role.nativeElement.value == Role.Client ? 0 : 1,
       id: this.id
     }
+
+    if (this.passwordMandatory || this.changePassword) {
+      user.password = this.password.nativeElement.value,
+      user.newPassword = this.password.nativeElement.value;
+      user.confirmPassword = this.confirmPassword.nativeElement.value;
+    }
+
+    return user;
   }
 
   setUser(user: User): void {

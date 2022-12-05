@@ -1,0 +1,7 @@
+<app-nav-menu-admin></app-nav-menu-admin>
+<div class="neon-text container box-panel box-shadow">
+    <h5>Username: {{user.userName}}</h5>
+    <h5>Email: {{user.email}}</h5>
+    <h5>Role: {{roleToString(user.role)}}</h5>
+    <devices [devices]="user.devices" [redirect]="'/admin/devices/'" [admin]="false" (onChange)="ngOnInit()"></devices>
+</div>

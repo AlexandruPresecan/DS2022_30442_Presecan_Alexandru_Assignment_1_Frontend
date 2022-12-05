@@ -1,6 +1,8 @@
 import { ElementRef, ViewChild } from "@angular/core";
 import { Component } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
+import { CookieService } from "ngx-cookie-service";
+import { UserService } from "src/services/user-service";
 import { Device } from "../../models/device/device";
 import { DeviceService } from "../../services/device-service";
 import { EnergyConsumptionService } from "../../services/energy-consumption-service";
@@ -17,12 +19,19 @@ export class DeviceView {
 
   @ViewChild('datePicker') private datePicker!: ElementRef;
 
-  constructor(private deviceService: DeviceService, private energyConsumptionService: EnergyConsumptionService, private activatedRoute : ActivatedRoute) {
-
+  constructor(private deviceService: DeviceService, private energyConsumptionService: EnergyConsumptionService, private userService: UserService, private cookieService: CookieService, private activatedRoute : ActivatedRoute, private router: Router) {
+    
   }
   
   ngAfterViewInit(): void {
     this.deviceService.getDeviceById(Number(this.activatedRoute.snapshot.paramMap.get("id"))).subscribe(result => {
+
+      this.userService.isAdminAuthenticated().subscribe(result => {
+      }, error => {
+        if (result.userId?.toString() != this.cookieService.get("userId"))
+          this.router.navigate(["client", "devices"]);
+      });
+
       this.device = result;
       this.loadChartData();
     }, error => console.log(error));

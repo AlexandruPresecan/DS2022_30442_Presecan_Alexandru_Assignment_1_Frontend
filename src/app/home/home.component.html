@@ -18,11 +18,11 @@
     <br />
     <br />
     <h5 [hidden]="isLoginTab">Confirm Password</h5>
-    <input [hidden]="isLoginTab" type="password" confirmPassword />
+    <input [hidden]="isLoginTab" type="password" #confirmPassword />
     <br [hidden]="isLoginTab" />
     <br [hidden]="isLoginTab" />
     <button [hidden]="!isLoginTab" (click)="login()">Login</button>
-    <button [hidden]="isLoginTab">Register</button>
+    <button [hidden]="isLoginTab" (click)="register()">Register</button>
     <br />
     <br />
     <p class="error" #error></p>

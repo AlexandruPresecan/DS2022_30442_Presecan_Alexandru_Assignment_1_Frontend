@@ -8,15 +8,17 @@ import { Device } from '../../models/device/device';
 })
 export class DeviceModal {
 
+  @Input() admin!: boolean;
+
   @ViewChild('modal') private modal!: ElementRef;
   @ViewChild('error') private error!: ElementRef;
 
   @ViewChild('description') private description!: ElementRef;
   @ViewChild('address') private address!: ElementRef;
   @ViewChild('maximumHourlyEnergyConsumption') private maximumHourlyEnergyConsumption!: ElementRef;
+  @ViewChild('userId') private userId!: ElementRef;
 
   private id!: number;
-  private userId!: number;
 
   title!: string;
 
@@ -37,17 +39,17 @@ export class DeviceModal {
       description: this.description.nativeElement.value,
       address: this.address.nativeElement.value,
       maximumHourlyEnergyConsumption: this.maximumHourlyEnergyConsumption.nativeElement.value,
-      id: this.id,
-      userId: this.userId
+      userId: this.userId.nativeElement.value == "" ? null : this.userId.nativeElement.value,
+      id: this.id
     }
   }
 
   setDevice(device: Device): void {
     this.description.nativeElement.value = device.description;
     this.address.nativeElement.value = device.address;
-    this.maximumHourlyEnergyConsumption.nativeElement.value = device.maximumHourlyEnergyConsumption
+    this.maximumHourlyEnergyConsumption.nativeElement.value = device.maximumHourlyEnergyConsumption;
+    this.userId.nativeElement.value = device.userId;
     this.id = device.id;
-    this.userId = device.userId;
   }
 
   setError(error: string): void {

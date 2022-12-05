@@ -1,0 +1,37 @@
+<app-nav-menu-admin></app-nav-menu-admin>
+<div class="neon-text container">
+  <br />
+  <br />
+  <h2 class="devices">User-Device Mapping</h2>
+  <div class="box-panel box-shadow">
+    <div style="display: flex;flex-direction: row">
+      <div style="margin-left: 25%">
+        <h5>Users</h5>
+        <select #userSelect>
+          <option *ngFor="let user of users" [value]="user.id">
+            {{user.userName}}
+          </option>
+        </select>
+      </div>
+      <div style="margin-left: 25%">
+        <h5>Devices</h5>
+        <select #deviceSelect>
+          <option *ngFor="let device of devices" [value]="device.id"> 
+            {{device.description}}
+          </option>
+        </select>
+      </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="center-content">
+      <button (click)="mapUserToDevice()">Map User to Device</button>
+    </div>
+    <br>
+    <br>
+    <div class="center-content">
+      <h5 #message></h5>
+    </div>
+  </div>
+</div>

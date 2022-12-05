@@ -2,7 +2,7 @@
 
 /* Provide sufficient contrast against white background */
 a {
-  color: #0366d6;
+  color: rgb(15, 99, 215);
 }
 
 code {
@@ -11,8 +11,8 @@ code {
 
 .btn-primary {
   color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+  background-color: rgb(15, 99, 215);
+  border-color: rgb(15, 99, 215);
 }
 
 .center-content {
@@ -25,40 +25,49 @@ code {
 }
 
 body {
-  background-image: url('assets/wp11079666.png');
+  background-image: url('assets/abstract-technology-chip-processor-background-circuit-board-and-html-code-3d-illustration-blue-technology-background-vector.jpg');
   background-size: cover; 
 }
 
 .neon-text {
-  color: rgb(66, 164, 245);
+  color: rgb(15, 99, 215);
   font-family: 'Neuropolitical Regular'
+}
+
+.neon-text-nav {
+  color: rgb(15, 99, 215);
+  font-family: 'Neuropolitical Regular'
+}
+
+.neon-text-nav:hover {
+  color: white;
 }
 
 input {
   color: black;
   background-color: white;
-  border-color: rgb(66, 164, 245);
+  border-color: rgb(15, 99, 215);
 }
 
 button {
-  background-color: rgb(66, 164, 245);
+  background-color: rgb(15, 99, 215);
   color: black;
   outline: none;
   cursor: pointer;
   transition: 0.3s;
   width: 50%;
   font-size: 20px;
-  border-color: rgb(66, 164, 245);
+  border-color: rgb(15, 99, 215);
 }
 
 button:hover {
   background-color: rgba(0, 0, 0, 0);
-  color: rgb(66, 164, 245);
+  color: rgb(15, 99, 215);
 }
 
 .active-button {
   background-color: rgba(0, 0, 0, 0);
-  color: rgb(66, 164, 245);
+  color: rgb(15, 99, 215);
 }
 
 @font-face {
@@ -71,8 +80,16 @@ button:hover {
 }
 
 .bg-neon {
-  background-color: rgb(66, 164, 245);
+  background-color: rgb(15, 99, 215);
 }
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.box-panel {
+  justify-content: center;
+  width: 100%;
+  padding: 50px;
+  border: 1px solid white;
+  background-color: rgba(0, 0, 0, 0.75);
+}

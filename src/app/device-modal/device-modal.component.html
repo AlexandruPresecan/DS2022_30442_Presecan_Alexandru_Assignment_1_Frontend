@@ -12,6 +12,9 @@
     <h5>Maximum Hourly Energy Consumption</h5>
     <input #maximumHourlyEnergyConsumption />
     <br />
+    <h5 [hidden]="!admin">User Id</h5>
+    <input [hidden]="!admin" #userId/>
+    <br [hidden]="!admin"/>
     <div class="center-content">
       <button (click)="onClick()">{{title}}</button>
     </div>

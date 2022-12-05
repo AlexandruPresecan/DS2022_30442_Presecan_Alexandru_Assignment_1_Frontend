@@ -1,4 +1,3 @@
-<app-nav-menu></app-nav-menu>
 <div class="neon-text container">
   <br />
   <br />
@@ -13,6 +12,7 @@
       <th>Maximum Hourly Energy Consumption</th>
       <th>View</th>
       <th>Edit</th>
+      <th>Delete</th>
     </tr>
     <tr *ngFor="let device of devices">
       <td>{{device.description}}</td>
@@ -20,8 +20,9 @@
       <td>{{device.maximumHourlyEnergyConsumption}} kW</td>
       <td class="icon" (click)="viewDevice(device.id)"><img class="icon" src="assets/eye.png" /></td>
       <td class="icon" (click)="openEditDeviceModal(device)"><img class="icon" src="assets/edit.png" /></td>
+      <td class="icon" (click)="deleteDevice(device)"><img class="icon" src="assets/delete.png" /></td>
     </tr>
   </table>
-  <device-modal #addDeviceModal></device-modal>
-  <device-modal #editDeviceModal></device-modal>
+  <device-modal #addDeviceModal [admin]="admin"></device-modal>
+  <device-modal #editDeviceModal [admin]="admin"></device-modal>
 </div>
