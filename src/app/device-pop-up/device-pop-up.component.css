@@ -1,0 +1,49 @@
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  background-color: black;
+  padding: 1%;
+  border: 2px solid rgb(15, 99, 215);
+  width: 33%;
+  right: 0;
+  bottom: 0;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+@-webkit-keyframes animatetop {
+  from {
+    bottom: -300px;
+    opacity: 0
+  }
+
+  to {
+    bottom: 0;
+    opacity: 1
+  }
+}
+
+@keyframes animatetop {
+  from {
+    bottom: -300px;
+    opacity: 0
+  }
+
+  to {
+    bottom: 0;
+    opacity: 1
+  }
+}
+
+.close {
+  float: right;
+  width: 5%;
+  position: absolute;
+  top: -2px;
+  right: -2px;
+}
+

@@ -24,6 +24,7 @@ import { ClientDevices } from './client-devices/client-devices.component';
 import { AdminDevices } from './admin-devices/admin-devices.component';
 import { UserView } from './user-view/user-view.component';
 import { UserDeviceMapping } from './user-device-mapping/user-device-mapping.component';
+import { DevicePopUp } from './device-pop-up/device-pop-up.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { UserDeviceMapping } from './user-device-mapping/user-device-mapping.com
     ClientDevices,
     AdminDevices,
     UserView,
-    UserDeviceMapping
+    UserDeviceMapping,
+    DevicePopUp
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
