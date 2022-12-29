@@ -1,0 +1,8 @@
+{
+    "/greet": {
+      "target": "https://localhost:7263",
+      "secure": false,
+      "changeOrigin": true
+    }
+}
+  

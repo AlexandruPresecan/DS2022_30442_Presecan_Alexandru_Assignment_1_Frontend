@@ -25,6 +25,7 @@ import { AdminDevices } from './admin-devices/admin-devices.component';
 import { UserView } from './user-view/user-view.component';
 import { UserDeviceMapping } from './user-device-mapping/user-device-mapping.component';
 import { DevicePopUp } from './device-pop-up/device-pop-up.component';
+import { Chat } from './chat/chat.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { DevicePopUp } from './device-pop-up/device-pop-up.component';
     AdminDevices,
     UserView,
     UserDeviceMapping,
-    DevicePopUp
+    DevicePopUp,
+    Chat,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

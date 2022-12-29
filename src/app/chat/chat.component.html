@@ -1,0 +1,12 @@
+<div class="popup" #popup>
+  <div *ngIf="device">
+  <div style="display: flex">
+    <img src="assets/Warning-PNG-Picture.png" style="height: 100px; width: 100px"/>
+    <div *ngIf="device">
+      <h4 style="color: white">Device {{device.description}}</h4>
+      <h6 style="color: white">Maximum hourly energy consumption was exceeded with {{device.currentHourlyEnergyConsumption == null ? 0 : device.currentHourlyEnergyConsumption - device.maximumHourlyEnergyConsumption}}kW</h6>
+      <h6 style="color: white">Maximum hourly energy consumption: {{device.maximumHourlyEnergyConsumption}}kW</h6>
+      <h6 style="color: white">Current hourly energy consumption: {{device.currentHourlyEnergyConsumption}}kW</h6>
+    </div>
+  </div>
+</div>

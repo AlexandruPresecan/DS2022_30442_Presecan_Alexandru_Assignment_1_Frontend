@@ -1,8 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { HubConnection, HubConnectionBuilder } from '@microsoft/signalr';
 import { CookieService } from 'ngx-cookie-service';
-import { environment } from 'src/environments/environment';
 import { User } from 'src/models/user/user';
 import { UserService } from 'src/services/user-service';
 import { UserModal } from '../user-modal/user-modal.component';
@@ -16,7 +14,6 @@ export class NavMenuAdminComponent {
 
   isExpanded = false;
   user!: User;
-  hubConnection!: HubConnection
 
   @ViewChild('editUserModal') editUserModal!: UserModal;
 
