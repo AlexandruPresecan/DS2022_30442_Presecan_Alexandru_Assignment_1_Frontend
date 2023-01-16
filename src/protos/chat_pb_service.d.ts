@@ -1,21 +1,41 @@
-// package: greet
-// file: greet.proto
+// package: chat
+// file: chat.proto
 
-import * as greet_pb from "./greet_pb";
+import * as chat_pb from "./chat_pb";
 import {grpc} from "@improbable-eng/grpc-web";
 
-type GreeterSayHello = {
+type ChatMessageStream = {
   readonly methodName: string;
-  readonly service: typeof Greeter;
-  readonly requestStream: false;
-  readonly responseStream: false;
-  readonly requestType: typeof greet_pb.HelloRequest;
-  readonly responseType: typeof greet_pb.HelloReply;
+  readonly service: typeof Chat;
+  readonly requestStream: true;
+  readonly responseStream: true;
+  readonly requestType: typeof chat_pb.Message;
+  readonly responseType: typeof chat_pb.Message;
 };
 
-export class Greeter {
+type ChatIsTypingStream = {
+  readonly methodName: string;
+  readonly service: typeof Chat;
+  readonly requestStream: true;
+  readonly responseStream: true;
+  readonly requestType: typeof chat_pb.IsTyping;
+  readonly responseType: typeof chat_pb.IsTyping;
+};
+
+type ChatSeenStream = {
+  readonly methodName: string;
+  readonly service: typeof Chat;
+  readonly requestStream: true;
+  readonly responseStream: true;
+  readonly requestType: typeof chat_pb.Seen;
+  readonly responseType: typeof chat_pb.Seen;
+};
+
+export class Chat {
   static readonly serviceName: string;
-  static readonly SayHello: GreeterSayHello;
+  static readonly MessageStream: ChatMessageStream;
+  static readonly IsTypingStream: ChatIsTypingStream;
+  static readonly SeenStream: ChatSeenStream;
 }
 
 export type ServiceError = { message: string, code: number; metadata: grpc.Metadata }
@@ -46,18 +66,12 @@ interface BidirectionalStream<ReqT, ResT> {
   on(type: 'status', handler: (status: Status) => void): BidirectionalStream<ReqT, ResT>;
 }
 
-export class GreeterClient {
+export class ChatClient {
   readonly serviceHost: string;
 
   constructor(serviceHost: string, options?: grpc.RpcOptions);
-  sayHello(
-    requestMessage: greet_pb.HelloRequest,
-    metadata: grpc.Metadata,
-    callback: (error: ServiceError|null, responseMessage: greet_pb.HelloReply|null) => void
-  ): UnaryResponse;
-  sayHello(
-    requestMessage: greet_pb.HelloRequest,
-    callback: (error: ServiceError|null, responseMessage: greet_pb.HelloReply|null) => void
-  ): UnaryResponse;
+  messageStream(metadata?: grpc.Metadata): BidirectionalStream<chat_pb.Message, chat_pb.Message>;
+  isTypingStream(metadata?: grpc.Metadata): BidirectionalStream<chat_pb.IsTyping, chat_pb.IsTyping>;
+  seenStream(metadata?: grpc.Metadata): BidirectionalStream<chat_pb.Seen, chat_pb.Seen>;
 }
 

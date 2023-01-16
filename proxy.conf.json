@@ -1,0 +1,11 @@
+{
+    "/grpc": {
+      "target": "https://localhost:7263",
+      "secure": true
+    },
+    "/api": {
+        "target": "https://localhost:7184",
+        "secure": false
+    }
+}
+  

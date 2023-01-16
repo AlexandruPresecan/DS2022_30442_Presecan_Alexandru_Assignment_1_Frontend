@@ -21,7 +21,7 @@ export class DevicePopUp {
       return;
 
     const hubConnection = new HubConnectionBuilder()
-    .withUrl(environment.apiUrl + '/notify', {
+    .withUrl('/notify', {
       accessTokenFactory: function () {
         return cookieService.get("token");
       }

@@ -3,7 +3,6 @@ import { UserService } from '../../services/user-service';
 import { User } from "../../models/user/user";
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
-import { resolveSanitizationFn } from '@angular/compiler/src/render3/view/template';
 import { Role } from 'src/enums/role';
 
 @Component({
@@ -55,12 +54,16 @@ export class HomeComponent {
     };
 
     this.userService.authenticateUser(user).subscribe(result => {
+
       this.cookieService.set("token", result.token);
       this.cookieService.set("userId", result.id.toString());
+      this.cookieService.set("userName", result.userName.toString());
+
       if (result.role == Role.Admin)
         this.router.navigate(['admin/devices']);
       else
         this.router.navigate(['client/devices']);
+        
     }, error => { console.log(error); this.error.nativeElement.innerText = error.error; });
   }
 

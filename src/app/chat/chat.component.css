@@ -1,56 +1,25 @@
-.popup {
-  display: none;
-  position: fixed;
+.text-area {
+  background-color: white;
+  overflow: scroll;
+  height: 500px;
+}
+
+.message {
+  margin: 20px;
+  padding: 10px;
+  border: 2px solid rgb(15, 99, 215);
+}
+
+.users {
+  left: 0;
+  width: 25%;
   z-index: 1;
-  background-color: black;
-  padding: 1%;
-  border: 2px solid red;
-  width: 33%;
-  bottom: 0;
-  right: 0;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-  -webkit-animation-name: animatepopup;
-  -webkit-animation-duration: 0.4s;
-  animation-name: animatepopup;
-  animation-duration: 0.4s
+  position: fixed;
 }
 
-@-webkit-keyframes animatepopup {
-  from {
-    bottom: -300px;
-    opacity: 0
-  }
-
-  to {
-    bottom: 0;
-    opacity: 1
-  }
+.icon {
+  height: 30px;
+  width: 30px;
 }
 
-@keyframes animatepopup {
-  from {
-    bottom: -300px;
-    opacity: 0
-  }
-
-  to {
-    bottom: 0;
-    opacity: 1
-  }
-}
-
-.close {
-  float: right;
-  width: 5%;
-  position: absolute;
-  background-color: red;
-  border-color: red;
-  top: -2px;
-  right: -2px;
-}
-
-.close:hover {
-  background-color: rgba(0, 0, 0, 0);
-  color: red;
-}
 

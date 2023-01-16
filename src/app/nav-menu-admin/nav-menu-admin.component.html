@@ -25,6 +25,9 @@
         <li class="nav-item" [routerLinkActive]="['link-active']">
           <a class="nav-link neon-text-nav" [routerLink]="['/admin/user-device-mapping']">User-Device Mapping</a>
         </li>
+        <li class="nav-item" [routerLinkActive]="['link-active']">
+          <a class="nav-link neon-text-nav" [routerLink]="['/admin/chat']">Chat</a>
+        </li>
       </ul>
       <div
         class="navbar-collapse collapse d-sm-inline-flex justify-content-end"
@@ -44,4 +47,3 @@
 </header>
 <user-modal class="neon-text" #editUserModal></user-modal>
 <device-pop-up></device-pop-up>
-<chat></chat>

@@ -1,12 +1,30 @@
-<div class="popup" #popup>
-  <div *ngIf="device">
-  <div style="display: flex">
-    <img src="assets/Warning-PNG-Picture.png" style="height: 100px; width: 100px"/>
-    <div *ngIf="device">
-      <h4 style="color: white">Device {{device.description}}</h4>
-      <h6 style="color: white">Maximum hourly energy consumption was exceeded with {{device.currentHourlyEnergyConsumption == null ? 0 : device.currentHourlyEnergyConsumption - device.maximumHourlyEnergyConsumption}}kW</h6>
-      <h6 style="color: white">Maximum hourly energy consumption: {{device.maximumHourlyEnergyConsumption}}kW</h6>
-      <h6 style="color: white">Current hourly energy consumption: {{device.currentHourlyEnergyConsumption}}kW</h6>
+<div *ngIf="admin" class="users neon-text">
+  <h5>Clients:</h5>
+  <div *ngFor="let chat of chats | keyvalue">
+    <button #user (click)="selectChat(chat.key)">{{chat.key}}</button>
+  </div>
+</div>
+<div *ngIf="selectedChat.userName !== ''" class="neon-text container box-panel box-shadow" style="width: 50%">
+  <h5>Chat with {{selectedChat.userName}}</h5>
+  <br>
+  <div #textArea class="text-area" (scroll)="sendSeen()" (click)="sendSeen()">
+    <div *ngFor="let message of selectedChat.messages" class="message">
+      <span>{{message.message.getUsername()}}</span>
+      <p style="color: black; margin-bottom: 0px">{{message.message.getText()}}</p>
+      <div style="display: flex; justify-content: flex-end">
+        <img [hidden]="message.message.getUsername() == selectedChat.userName || !message.seen" class="icon" src="assets/eye.png"/>
+      </div>
     </div>
+  </div>
+  <br>
+  <div [hidden]="!selectedChat.isTyping" style="display: flex; flex-direction: row">
+    <span style="font-style: italic">{{selectedChat.userName}}</span>
+    <span style="width: 5px"></span>
+    <span style="color: white; font-style: italic">is typing...</span>
+  </div>
+  <br>
+  <div style="display: flex; flex-direction: row">
+    <input #text type="text" (keydown)="sendIsTyping()" style="width: 75%"/>
+    <button (click)="sendMessage(text.value)" style="width: 25%">Send</button>
   </div>
 </div>

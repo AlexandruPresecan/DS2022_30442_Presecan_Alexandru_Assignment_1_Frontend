@@ -26,6 +26,8 @@ import { UserView } from './user-view/user-view.component';
 import { UserDeviceMapping } from './user-device-mapping/user-device-mapping.component';
 import { DevicePopUp } from './device-pop-up/device-pop-up.component';
 import { Chat } from './chat/chat.component';
+import { AdminChat } from './admin-chat/admin-chat.component';
+import { ClientChat } from 'src/app/client-chat/client-chat.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,8 @@ import { Chat } from './chat/chat.component';
     UserDeviceMapping,
     DevicePopUp,
     Chat,
+    AdminChat,
+    ClientChat
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -53,11 +57,14 @@ import { Chat } from './chat/chat.component';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'client/devices', component: ClientDevices, canActivate: [ClientGuard], pathMatch: 'full' },
       { path: 'client/devices/:id', component: DeviceView, canActivate: [ClientGuard], pathMatch: 'full' },
+      { path: 'client/chat', component: ClientChat, canActivate: [ClientGuard], pathMatch: 'full' },
       { path: 'admin/devices', component: AdminDevices, canActivate: [AdminGuard], pathMatch: 'full' },
       { path: 'admin/devices/:id', component: DeviceView, canActivate: [AdminGuard], pathMatch: 'full' },
       { path: 'admin/users', component: Users, canActivate: [AdminGuard], pathMatch: 'full' },
       { path: 'admin/users/:id', component: UserView, canActivate: [AdminGuard], pathMatch: 'full' },
       { path: 'admin/user-device-mapping', component: UserDeviceMapping, canActivate: [AdminGuard], pathMatch: 'full' },
+      { path: 'admin/chat', component: AdminChat, canActivate: [AdminGuard], pathMatch: 'full' },
+
     ]),
     DxChartModule,
     BrowserAnimationsModule
